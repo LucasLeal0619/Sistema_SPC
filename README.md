@@ -1,8 +1,8 @@
-# SIPED — Sistema Integrado Pedagógico
+# Sistema_SGPC — Sistema de Gerenciamento de Planos de Cursos
 
 Sistema interno do SENAC DF (CPED/DEP) para gestão pedagógica, portfólio de cursos e processos educacionais.
 
-**Arquitetura:** API Laravel 12 (`Back_SIPED`, porta 8000) + SPA Vue 3 (`Front_SIPED`, porta 5173) + MySQL.
+**Arquitetura:** API Laravel 12 (`Back_SGPC`, porta 8000) + SPA Vue 3 (`Front_SGPC`, porta 5173) + MySQL.
 
 ## Equipe
 
@@ -41,22 +41,22 @@ cd sistema-sgpc
 No MySQL (phpMyAdmin ou cliente):
 
 ```sql
-CREATE DATABASE SIPED;
+CREATE DATABASE SGPC;
 ```
 
 ### 3. Configure o `.env` desta máquina
 
-O `local-start.cmd` copia os exemplos se ainda não existirem. Confira principalmente o banco em `Back_SIPED\.env`:
+O `local-start.cmd` copia os exemplos se ainda não existirem. Confira principalmente o banco em `Back_SGPC\.env`:
 
 | Variável | Valor típico |
 |---|---|
 | `DB_HOST` | `127.0.0.1` |
 | `DB_PORT` | porta do MySQL neste XAMPP (`3306`, às vezes `3307`/`3308`) |
-| `DB_DATABASE` | `SIPED` |
+| `DB_DATABASE` | `SGPC` |
 | `DB_USERNAME` | `root` |
 | `DB_PASSWORD` | senha deste MySQL, ou vazio |
 
-O front usa `Front_SIPED\.env` com `VITE_API_URL=http://127.0.0.1:8000`.
+O front usa `Front_SGPC\.env` com `VITE_API_URL=http://127.0.0.1:8000`.
 
 ### 4. Suba o projeto
 
@@ -83,14 +83,14 @@ Se o login falhar, a tela mostra a mensagem da API. Feche as janelas e rode `loc
 ## Se preferir os comandos na mão
 
 ```cmd
-copy Back_SIPED\.env.example Back_SIPED\.env
-copy Front_SIPED\.env.example Front_SIPED\.env
+copy Back_SGPC\.env.example Back_SGPC\.env
+copy Front_SGPC\.env.example Front_SGPC\.env
 ```
 
-Ajuste o `Back_SIPED\.env` (banco desta máquina). Depois:
+Ajuste o `Back_SGPC\.env` (banco desta máquina). Depois:
 
 ```cmd
-cd Back_SIPED
+cd Back_SGPC
 composer install
 php artisan key:generate
 php artisan migrate --force
@@ -98,30 +98,30 @@ php artisan optimize:clear
 php artisan storage:link
 php artisan db:seed --force
 
-cd ..\Front_SIPED
+cd ..\Front_SGPC
 npm install
 ```
 
 Em dois terminais:
 
 ```cmd
-cd Back_SIPED
+cd Back_SGPC
 php artisan serve --host=127.0.0.1 --port=8000
 ```
 
 ```cmd
-cd Front_SIPED
+cd Front_SGPC
 npm run dev
 ```
 
 A ordem importa: as tabelas (inclusive `cache`) precisam existir **antes** de `optimize:clear`. Se o migrate falhar, não suba o sistema.
 
-`storage:link` aponta `Back_SIPED/public/storage` para `Back_SIPED/storage/app/public`. Sem esse link as fotos da CPED e do carômetro não abrem. Se você mover ou renomear a pasta do projeto, rode `php artisan storage:link` de novo.
+`storage:link` aponta `Back_SGPC/public/storage` para `Back_SGPC/storage/app/public`. Sem esse link as fotos da CPED e do carômetro não abrem. Se você mover ou renomear a pasta do projeto, rode `php artisan storage:link` de novo.
 
 ## Problemas comuns
 
 - **MySQL recusou a conexão:** confira Start no XAMPP, porta, usuário e senha do `.env` desta máquina — não copie o `.env` de outro computador.
-- **Fotos da CPED quebradas depois de mover a pasta:** `cd Back_SIPED` e `php artisan storage:link`.
+- **Fotos da CPED quebradas depois de mover a pasta:** `cd Back_SGPC` e `php artisan storage:link`.
 - **Porta 8000 ou 5173 ocupada:** o `local-start.cmd` encerra o processo antigo nessas portas.
 - **Disco C: cheio:** o script avisa e não apaga arquivos. Libere Temp/Downloads antes de continuar.
 - **Health check da API:** `GET http://127.0.0.1:8000/up` deve responder 200.
@@ -130,12 +130,12 @@ A ordem importa: as tabelas (inclusive `cache`) precisam existir **antes** de `o
 
 Não use `php artisan serve` nem `npm run dev` como servidor definitivo.
 
-- Front: `cd Front_SIPED && npm run build` e sirva os estáticos pelo servidor web.
-- API: IIS/Apache/Nginx apontando para `Back_SIPED/public`.
+- Front: `cd Front_SGPC && npm run build` e sirva os estáticos pelo servidor web.
+- API: IIS/Apache/Nginx apontando para `Back_SGPC/public`.
 - Produção: `APP_DEBUG=false` e `LOG_LEVEL=warning`.
 
 ## Estrutura
 
-- `Back_SIPED/` — API Laravel
-- `Front_SIPED/` — SPA Vue 3 + Vite
+- `Back_SGPC/` — API Laravel
+- `Front_SGPC/` — SPA Vue 3 + Vite
 - `local-start.cmd` — instala, migra, seeda e sobe os dois no Windows

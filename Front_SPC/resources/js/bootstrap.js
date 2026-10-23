@@ -1,0 +1,41 @@
+import axios from 'axios';
+import { clearSessao } from './scripts/auth';
+import { lerCicloContexto } from './scripts/cicloContexto';
+
+window.axios = axios;
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common.Accept = 'application/json';
+
+const token = localStorage.getItem('sgp_token');
+
+if (token) {
+  window.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+}
+
+window.axios.interceptors.request.use((config) => {
+  const ciclo = lerCicloContexto();
+  if (ciclo?.id) {
+    config.headers = config.headers || {};
+    config.headers['X-Sistema-SGPC-Ciclo-Id'] = String(ciclo.id);
+  }
+  return config;
+});
+
+window.axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      clearSessao();
+
+      const skipRedirect = error.config?.skipAuthRedirect;
+      const jaNoLogin = window.location.pathname.toLowerCase().startsWith('/login');
+
+      if (!skipRedirect && !jaNoLogin) {
+        window.location.replace('/login');
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
