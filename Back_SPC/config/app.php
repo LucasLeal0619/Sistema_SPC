@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sistema_SGPC'),
+    'name' => env('APP_NAME', 'Sistema_SPC'),
 
     /*
     |--------------------------------------------------------------------------

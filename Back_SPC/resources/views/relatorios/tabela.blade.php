@@ -81,7 +81,7 @@
 </head>
 <body>
     <div class="header">
-        <p class="header-kicker">SENAC DF · CPED · Sistema_SGPC</p>
+        <p class="header-kicker">SENAC DF · PORTFÓLIO DE CURSOS · Sistema_SPC</p>
         <h1>{{ $titulo }}</h1>
         <p>{{ $descricao }}</p>
         @if (!empty($ciclo['nome']))
@@ -129,7 +129,7 @@
     @endif
 
     <div class="footer">
-        Documento gerado automaticamente pelo Sistema_SGPC — Sistema Integrado Pedagógico.
+        Documento gerado automaticamente pelo Sistema_SPC — Sistema Integrado Pedagógico.
     </div>
 </body>
 </html>

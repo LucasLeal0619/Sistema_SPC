@@ -41,7 +41,7 @@ class OrigemDadosApiTest extends TestCase
 
         return array_merge([
             'ciclo_id' => $ciclo->id,
-            'titulo' => 'Curso cadastrado no Sistema_SGPC',
+            'titulo' => 'Curso cadastrado no Sistema_SPC',
             'eixo' => 'Gestão e Moda',
             'segmento' => 'Gestão e Comércio',
             'programa' => '60+',
@@ -83,7 +83,7 @@ class OrigemDadosApiTest extends TestCase
 
         $this->getJson('/api/cursos/'.$id)
             ->assertOk()
-            ->assertJsonPath('curso.titulo', 'Curso cadastrado no Sistema_SGPC')
+            ->assertJsonPath('curso.titulo', 'Curso cadastrado no Sistema_SPC')
             ->assertJsonPath('curso.origem.source_type', 'local');
 
         $this->putJson('/api/cursos/'.$id, [

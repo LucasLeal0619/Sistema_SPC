@@ -411,11 +411,7 @@ export default {
       const metas = Number(item.composicao?.plano_de_metas ?? 0);
       const pca = Number(item.composicao?.pca ?? 0);
       const eixos = Number(item.composicao?.eixos ?? 0);
-      const visitas = Number(item.composicao?.visitas ?? 0);
-      const horas = Number(item.composicao?.horas_pedagogicas ?? 0);
-      const acoes = Number(item.composicao?.acoes ?? 0);
-      const eventos = Number(item.composicao?.eventos ?? 0);
-      const temRegistros = cursos + metas + pca + eixos + visitas + horas + acoes + eventos > 0;
+      const temRegistros = cursos + metas + pca + eixos > 0;
 
       if (temRegistros) {
         this.mensagemErro = `Não é possível excluir o ciclo "${item.nome}" enquanto houver registros vinculados. Mova ou encerre os registros antes.`;

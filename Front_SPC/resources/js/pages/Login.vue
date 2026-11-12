@@ -1,6 +1,6 @@
 <template>
   <div class="login-page">
-    <section class="login-brand" aria-label="Sistema SGPC do Senac DF">
+    <section class="login-brand" aria-label="Sistema SPC do Senac DF">
       <div class="login-brand-content">
         <div class="login-logo-lockup">
           <img :src="logoSenac" alt="Senac" class="login-logo" />
@@ -8,7 +8,7 @@
         </div>
         <div class="login-brand-copy">
           <span class="login-brand-accent" aria-hidden="true"></span>
-          <h1 class="login-title">Sistema SGPC</h1>
+          <h1 class="login-title">Sistema SPC</h1>
           <p class="login-subtitle">Sistema de Gerenciamento de Planos de Cursos</p>
           <div class="login-brand-message">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -30,7 +30,7 @@
       <div class="login-card">
         <header class="login-card-header">
           <p class="login-card-welcome">Bem-vindo(a) ao</p>
-          <h2 class="login-card-title">Sistema SGPC</h2>
+          <h2 class="login-card-title">Sistema SPC</h2>
           <p class="login-card-intro">Faça login para acessar o sistema.</p>
         </header>
 

@@ -1,6 +1,6 @@
 import logoSenac from '../../images/Logo-Senac-branco.png';
 import { marcarSessao } from './auth';
-import { Sistema_SGPC_RODAPE } from './versao';
+import { Sistema_SPC_RODAPE } from './versao';
 
 const STORAGE_CREDENCIAIS = 'sgp_login_lembrado';
 
@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       logoSenac,
-      rodapeVersao: Sistema_SGPC_RODAPE,
+      rodapeVersao: Sistema_SPC_RODAPE,
       email: '',
       senha: '',
       lembrar: true,
@@ -83,7 +83,7 @@ export default {
             || 'Erro interno no servidor (HTTP 500). Verifique o back-end e o espaço em disco.';
         } else {
           this.errorMessage = error.response?.data?.message
-            || `Não foi possível entrar (HTTP ${error.response?.status || 'sem resposta'}). Confira se o back está na pasta Back_SGPC e rode php artisan optimize:clear.`;
+            || `Não foi possível entrar (HTTP ${error.response?.status || 'sem resposta'}). Confira se o back está na pasta Back_SPC e rode php artisan optimize:clear.`;
         }
       } finally {
         this.loading = false;

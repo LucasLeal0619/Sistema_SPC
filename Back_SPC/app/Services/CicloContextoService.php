@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class CicloContextoService
 {
-    public const HEADER = 'X-Sistema-SGPC-Ciclo-Id';
+    public const HEADER = 'X-Sistema-SPC-Ciclo-Id';
 
     public function resolver(?Request $request = null, bool $permitirTodos = false): ?Ciclo
     {

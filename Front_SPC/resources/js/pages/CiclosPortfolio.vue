@@ -3,7 +3,7 @@
     <template v-if="modo === 'lista'">
       <CrudPageHeader
         title="Ciclos de Gestão"
-        subtitle="Períodos de trabalho do Sistema_SGPC — SENAC DF"
+        subtitle="Períodos de trabalho do Sistema_SPC — SENAC DF"
         info="O ciclo ativo fica no seletor do topo. Use ← Voltar para sair desta tela."
         :show-novo="podeEditar"
         novo-label="Novo ciclo"
@@ -89,10 +89,6 @@
               <li>{{ textoQuantidade(item.composicao?.plano_de_metas, 'meta', 'metas') }}</li>
               <li>{{ textoQuantidade(item.composicao?.pca, 'PCA', 'PCAs') }}</li>
               <li>{{ textoQuantidade(item.composicao?.eixos, 'acompanhamento', 'acompanhamentos') }}</li>
-              <li>{{ textoQuantidade(item.composicao?.visitas, 'visita', 'visitas') }}</li>
-              <li>{{ textoQuantidade(item.composicao?.horas_pedagogicas, 'hora', 'horas') }}</li>
-              <li>{{ textoQuantidade(item.composicao?.acoes, 'ação', 'ações') }}</li>
-              <li>{{ textoQuantidade(item.composicao?.eventos, 'evento', 'eventos') }}</li>
             </ul>
 
             <div class="ciclo-card-modulos" @click.stop>

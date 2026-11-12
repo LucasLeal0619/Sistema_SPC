@@ -33,9 +33,6 @@ export const mixinHistoricoFormulario = {
   },
 
   methods: {
-    /**
-     * Páginas podem sobrescrever para resetar estado local sem mexer na rota.
-     */
     aplicarEstadoListaLocal() {
       this.modo = 'lista';
       if (Object.prototype.hasOwnProperty.call(this, 'editandoId')) {

@@ -5,11 +5,10 @@
         <img :src="logoSenac" alt="Senac" class="inicio-logo" />
 
         <div class="inicio-hero-text">
-          <p class="inicio-hero-tag">SENAC DF · CPED</p>
-          <h1 class="inicio-hero-title">Sistema_SGPC — Sistema Integrado Pedagógico</h1>
+          <p class="inicio-hero-tag">SENAC DF · PLANOS DE CURSOS</p>
+          <h1 class="inicio-hero-title">Sistema_SPC — Planos de Cursos</h1>
           <p class="inicio-hero-desc">
-            Plataforma pedagógica (CPED/DEP) para gestão educacional
-            e integração dos sistemas de apoio do SENAC DF.
+            Plataforma para gestão do portfólio, planejamento e oferta de cursos do SENAC DF.
           </p>
         </div>
 
@@ -25,8 +24,8 @@
           </div>
           <span class="inicio-stat-divider" aria-hidden="true" />
           <div class="inicio-stat">
-            <p class="inicio-stat-value">CPED</p>
-            <p class="inicio-stat-label">Unidade</p>
+            <p class="inicio-stat-value">Cursos</p>
+            <p class="inicio-stat-label">Portfólio</p>
           </div>
         </div>
       </div>

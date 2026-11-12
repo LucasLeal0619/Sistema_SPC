@@ -293,7 +293,7 @@ body {
   color: var(--sgp-text);
 }
 
-/* Full-bleed (Início/CPED): sem padding e fundo da marca no overscroll */
+/* Full-bleed da página inicial, sem padding ou fundo externo. */
 .app-main.app-main--flush {
   padding: 0 !important;
   overscroll-behavior-y: none;
@@ -353,7 +353,6 @@ body {
 .relatorios-page,
 .dashboard-page,
 .importacoes-page,
-.ferramentas-page,
 .inicio-page {
   background: var(--sgp-bg);
   color: var(--sgp-text);
@@ -373,9 +372,7 @@ body {
 .modal-detalhes,
 .form-page,
 .rel-resumo-card,
-.inicio-modulo-card,
-.kanban-quadro-card,
-.flux-card {
+.inicio-modulo-card {
   background: var(--sgp-surface) !important;
   border-color: var(--sgp-border) !important;
   color: var(--sgp-text) !important;
@@ -652,29 +649,18 @@ html[data-theme='dark'] .badge.is-revisao {
   color: #fdba74 !important;
 }
 
-/* Kanban / ferramentas */
-html[data-theme='dark'] .kanban-board,
-html[data-theme='dark'] .kanban-coluna,
-html[data-theme='dark'] .kanban-card,
-html[data-theme='dark'] .carometro-card,
-html[data-theme='dark'] .org-card,
-html[data-theme='dark'] .imp-card,
-html[data-theme='dark'] .ferramenta-card {
+html[data-theme='dark'] .imp-card {
   background: var(--sgp-surface) !important;
   border-color: var(--sgp-border) !important;
   color: var(--sgp-text) !important;
 }
 
-html[data-theme='dark'] .kanban-coluna-header,
-html[data-theme='dark'] .imp-step,
-html[data-theme='dark'] .cped-panel {
+html[data-theme='dark'] .imp-step {
   background: var(--sgp-surface-muted) !important;
   border-color: var(--sgp-border) !important;
   color: var(--sgp-text) !important;
 }
 
-html[data-theme='dark'] .termos-referencia-page,
-html[data-theme='dark'] .termos-referencia-page-form,
 html[data-theme='dark'] .cursos-page-form,
 html[data-theme='dark'] .crud-page-form,
 html[data-theme='dark'] .form-page,
@@ -829,10 +815,7 @@ html[data-theme='dark'] .auditoria-page,
 html[data-theme='dark'] .relatorios-page,
 html[data-theme='dark'] .dashboard-page,
 html[data-theme='dark'] .importacoes-page,
-html[data-theme='dark'] .ferramentas-page,
 html[data-theme='dark'] .inicio-page,
-html[data-theme='dark'] .cped-page,
-html[data-theme='dark'] .kanban-page,
 html[data-theme='dark'] [class$='-page']:not(.login-page) {
   background: var(--sgp-bg) !important;
   color: var(--sgp-text) !important;
@@ -1109,18 +1092,6 @@ html[data-theme='dark'] .dashboard-vchart-grid span {
   border-color: var(--sgp-border) !important;
 }
 
-html[data-theme='dark'] .ferramentas-top,
-html[data-theme='dark'] .ferramentas-page,
-html[data-theme='dark'] .sistemas-apoio-page,
-html[data-theme='dark'] .sistema-card,
-html[data-theme='dark'] .ferramenta-card,
-html[data-theme='dark'] .membro-card,
-html[data-theme='dark'] .eixo-membro-card {
-  background: var(--sgp-surface) !important;
-  border-color: var(--sgp-border) !important;
-  color: var(--sgp-text) !important;
-}
-
 html[data-theme='dark'] .ciclo-card,
 html[data-theme='dark'] .ciclo-volta-banner {
   background: transparent !important;
@@ -1160,17 +1131,8 @@ html[data-theme='dark'] .dashboard-metric-icon {
   color: var(--sgp-brand) !important;
 }
 
-html[data-theme='dark'] .ferramenta-icon {
-  background: var(--sgp-info-bg) !important;
-  color: var(--sgp-brand) !important;
-}
-
-html[data-theme='dark'] .funcao-panel,
-html[data-theme='dark'] .carometro-panel,
 html[data-theme='dark'] .chip,
-html[data-theme='dark'] .org-eixo-card,
-html[data-theme='dark'] .setor-badge,
-html[data-theme='dark'] .org-pill {
+html[data-theme='dark'] .setor-badge {
   background: var(--sgp-surface-muted) !important;
   border-color: var(--sgp-border) !important;
   color: var(--sgp-text) !important;
@@ -1210,60 +1172,7 @@ html.sgp-font-xxlarge .filtros-row {
   gap: 0.75rem;
 }
 
-/* Ferramentas — superfícies e texto no modo escuro */
-html[data-theme='dark'] .kanban-page,
-html[data-theme='dark'] .kanban-quadros-page,
-html[data-theme='dark'] .flux-lista-page,
-html[data-theme='dark'] .flux-editor-page,
-html[data-theme='dark'] .caro-page,
-html[data-theme='dark'] .org-page {
-  background: var(--sgp-bg);
-  color: var(--sgp-text);
-}
-
-html[data-theme='dark'] .kanban-top,
-html[data-theme='dark'] .kanban-quadros-top,
-html[data-theme='dark'] .flux-lista-top,
-html[data-theme='dark'] .flux-editor-top,
-html[data-theme='dark'] .caro-top,
-html[data-theme='dark'] .org-top {
-  background: var(--sgp-surface) !important;
-  border-color: var(--sgp-border) !important;
-}
-
-html[data-theme='dark'] .kanban-top h1,
-html[data-theme='dark'] .flux-lista-top h1,
-html[data-theme='dark'] .flux-editor-top h1,
-html[data-theme='dark'] .org-top h1 {
-  color: var(--sgp-brand);
-}
-
-html[data-theme='dark'] .kanban-cartao,
-html[data-theme='dark'] .kanban-coluna,
-html[data-theme='dark'] .kanban-quadro-card,
-html[data-theme='dark'] .flux-card,
-html[data-theme='dark'] .flux-palette,
-html[data-theme='dark'] .flux-props,
-html[data-theme='dark'] .vue-flow__minimap,
-html[data-theme='dark'] .vue-flow__controls-button {
-  background: var(--sgp-surface) !important;
-  border-color: var(--sgp-border);
-  color: var(--sgp-text);
-}
-
-html[data-theme='dark'] .kanban-quadro-add,
-html[data-theme='dark'] .flux-card-add,
-html[data-theme='dark'] .kanban-coluna {
-  background: var(--sgp-surface-muted) !important;
-  border-color: var(--sgp-border);
-  color: var(--sgp-text-muted);
-}
-
-html[data-theme='dark'] .vue-flow__controls-button {
-  color: var(--sgp-brand) !important;
-}
-
-/* —— Dark: Importações, CPED, CRUD, contraste tipográfico —— */
+/* —— Dark: importações, formulários e contraste tipográfico —— */
 html[data-theme='dark'] .imp-header,
 html[data-theme='dark'] .imp-toolbar,
 html[data-theme='dark'] .imp-upload-card,
@@ -1275,9 +1184,6 @@ html[data-theme='dark'] .modal-eixo,
 html[data-theme='dark'] .modal-card,
 html[data-theme='dark'] .modal-perfil,
 html[data-theme='dark'] .modal-detalhes-header,
-html[data-theme='dark'] .org-card,
-html[data-theme='dark'] .carometro-card,
-html[data-theme='dark'] .eixo-membro-card,
 html[data-theme='dark'] .unidade-chip {
   background: var(--sgp-surface) !important;
   border-color: var(--sgp-border) !important;
@@ -1299,62 +1205,15 @@ html[data-theme='dark'] .imp-dropzone.has-file {
   color: var(--sgp-info-text) !important;
 }
 
-html[data-theme='dark'] .cped-hero {
-  background: linear-gradient(135deg, #050a12 0%, #0a1220 45%, #101a2c 100%) !important;
-  color: #fff !important;
-  border-bottom: 1px solid var(--sgp-border);
-}
-
-html[data-theme='dark'] .cped-hero :is(h1, .cped-hero-kicker, .cped-stat strong, .cped-stat span) {
-  color: #fff !important;
-}
-
-html[data-theme='dark'] .cped-hero-desc {
-  color: rgba(255, 255, 255, 0.88) !important;
-}
-
-html[data-theme='dark'] .cped-stat {
-  background: rgba(255, 255, 255, 0.06) !important;
-}
-
-html[data-theme='dark'] .org-pill-ordenador {
-  background: #0c1830 !important;
-  color: #fff !important;
-  box-shadow: none !important;
-}
-
-html[data-theme='dark'] .org-pill-ordenador small {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-
-html[data-theme='dark'] .org-pill-assistente,
-html[data-theme='dark'] .org-pill-administrativo {
-  background: var(--sgp-surface-elevated) !important;
-  border-color: var(--sgp-border) !important;
-  color: var(--sgp-text) !important;
-  box-shadow: none !important;
-}
-
-html[data-theme='dark'] .org-pill-assistente small,
-html[data-theme='dark'] .org-pill-administrativo small,
-html[data-theme='dark'] .cped-loading,
-html[data-theme='dark'] .cped-empty,
-html[data-theme='dark'] .org-nivel-label,
-html[data-theme='dark'] .carometro-detalhe,
-html[data-theme='dark'] .modal-head p,
-html[data-theme='dark'] .modal-perfil-cargo,
 html[data-theme='dark'] .form-header p,
 html[data-theme='dark'] .cursos-subtitle,
 html[data-theme='dark'] .imp-subtitle,
 html[data-theme='dark'] .imp-ajuda,
 html[data-theme='dark'] .imp-toolbar-desc,
-html[data-theme='dark'] .form-card-hint,
-html[data-theme='dark'] .membro-card small {
+html[data-theme='dark'] .form-card-hint {
   color: var(--sgp-text-muted) !important;
 }
 
-html[data-theme='dark'] .cped-section-head h2,
-html[data-theme='dark'] .grupo-ordenador h3,
 html[data-theme='dark'] .imp-header h1,
 html[data-theme='dark'] .imp-painel-head h2,
 html[data-theme='dark'] .imp-kicker,
@@ -1369,10 +1228,6 @@ html[data-theme='dark'] .app-main h2 {
   color: var(--sgp-brand-strong) !important;
 }
 
-html[data-theme='dark'] .carometro-card strong,
-html[data-theme='dark'] .eixo-membro-card strong,
-html[data-theme='dark'] .eixo-membro-mini strong,
-html[data-theme='dark'] .membro-card strong,
 html[data-theme='dark'] .modal-head h2,
 html[data-theme='dark'] .modal-perfil-body h3,
 html[data-theme='dark'] .imp-toolbar-label,

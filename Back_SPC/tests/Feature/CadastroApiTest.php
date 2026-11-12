@@ -79,8 +79,8 @@ class CadastroApiTest extends TestCase
         $evento = Cadastro::query()->create([
             'usuario_id' => $editor->id,
             'acao' => 'criar',
-            'modulo' => 'eventos',
-            'resumo' => 'Cadastrou evento',
+            'modulo' => 'cursos',
+            'resumo' => 'Cadastrou curso',
         ]);
 
         $this->actingAs($editor, 'sanctum')

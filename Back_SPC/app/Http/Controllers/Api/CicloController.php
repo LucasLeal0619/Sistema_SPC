@@ -19,8 +19,6 @@ class CicloController extends Controller
     /** @var list<string> */
     private const COUNTS = [
         'cursos', 'planoDeMetas', 'pcas', 'cursosPorEixo',
-        'visitasTecnicas', 'horasPedagogicas', 'acoesExtensivas',
-        'jornadasPedagogicas', 'eventos',
     ];
 
     public function index(Request $request): JsonResponse
@@ -218,11 +216,6 @@ class CicloController extends Controller
             'plano_de_metas' => (int) ($ciclo->plano_de_metas_count ?? $ciclo->planoDeMetas()->count()),
             'pca' => (int) ($ciclo->pcas_count ?? $ciclo->pcas()->count()),
             'eixos' => (int) ($ciclo->cursos_por_eixo_count ?? $ciclo->cursosPorEixo()->count()),
-            'visitas' => (int) ($ciclo->visitas_tecnicas_count ?? $ciclo->visitasTecnicas()->count()),
-            'horas_pedagogicas' => (int) ($ciclo->horas_pedagogicas_count ?? $ciclo->horasPedagogicas()->count()),
-            'acoes' => (int) ($ciclo->acoes_extensivas_count ?? $ciclo->acoesExtensivas()->count()),
-            'jornadas' => (int) ($ciclo->jornadas_pedagogicas_count ?? $ciclo->jornadasPedagogicas()->count()),
-            'eventos' => (int) ($ciclo->eventos_count ?? $ciclo->eventos()->count()),
         ];
 
         return [

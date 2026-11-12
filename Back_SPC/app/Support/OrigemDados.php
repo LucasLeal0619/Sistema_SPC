@@ -48,10 +48,6 @@ class OrigemDados
         if (str_starts_with($path, 'revisao-dados')) {
             return 'revisao-dados';
         }
-        if (str_starts_with($path, 'kanban')) {
-            return 'ferramentas';
-        }
-
         $primeiro = explode('/', $path)[0] ?? '';
 
         return self::resolverChave($primeiro);

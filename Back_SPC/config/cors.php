@@ -7,7 +7,7 @@ return [
     | Cross-Origin Resource Sharing (CORS) Configuration
     |--------------------------------------------------------------------------
     |
-    | O front-end (Front_SGPC) roda em origem separada (Vite, porta 5173).
+    | O front-end (Front_SPC) roda em origem separada (Vite, porta 5173).
     | A API aceita apenas essas origens; autenticação é via token Sanctum
     | (Authorization: Bearer), sem cookies, por isso supports_credentials
     | fica false.

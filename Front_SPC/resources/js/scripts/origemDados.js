@@ -42,7 +42,7 @@ export function rotuloOrigem(registro) {
     return origem?.source_system || 'Integração externa';
   }
   if (tipo === 'local') {
-    return 'Cadastro interno do Sistema_SGPC';
+    return 'Cadastro interno do Sistema_SPC';
   }
   if (tipo === 'seeder') {
     return 'Massa de homologação (seeder)';

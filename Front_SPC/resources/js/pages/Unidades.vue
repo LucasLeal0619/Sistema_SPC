@@ -4,7 +4,7 @@
       <CrudPageHeader
         title="Estruturas Institucionais"
         subtitle="Gerencie faculdades, polos e unidades vinculadas ao sistema."
-        info="Cadastre e inative estruturas. Não há exclusão — o histórico permanece no Sistema_SGPC."
+        info="Cadastre e inative estruturas. Não há exclusão — o histórico permanece no Sistema_SPC."
         :show-novo="podeEditar"
         novo-label="Nova Estrutura"
         :show-clear-filters="temFiltro"

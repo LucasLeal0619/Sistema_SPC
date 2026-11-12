@@ -1,36 +1,21 @@
 <?php
 
-use App\Http\Controllers\Api\AcaoExtensivaController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CadastroController;
-use App\Http\Controllers\Api\CarometroController;
-use App\Http\Controllers\Api\CpedEquipeController;
 use App\Http\Controllers\Api\CursoController;
 use App\Http\Controllers\Api\CursoExecucaoController;
 use App\Http\Controllers\Api\CursoPorEixoController;
 use App\Http\Controllers\Api\DashboardController;
-use App\Http\Controllers\Api\EventoController;
 use App\Http\Controllers\Api\EixoController;
-use App\Http\Controllers\Api\FerramentaController;
-use App\Http\Controllers\Api\FluxogramaController;
-use App\Http\Controllers\Api\HoraPedagogicaController;
 use App\Http\Controllers\Api\ImportacaoController;
-use App\Http\Controllers\Api\JornadaPedagogicaController;
 use App\Http\Controllers\Api\CicloController;
-use App\Http\Controllers\Api\SistemaApoioController;
-use App\Http\Controllers\Api\KanbanController;
-use App\Http\Controllers\Api\NotificacaoController;
-use App\Http\Controllers\Api\OrganogramaController;
 use App\Http\Controllers\Api\PcaController;
 use App\Http\Controllers\Api\PlanoDeMetaController;
 use App\Http\Controllers\Api\RelatorioController;
-use App\Http\Controllers\Api\ResolucaoController;
 use App\Http\Controllers\Api\RevisaoDadosController;
-use App\Http\Controllers\Api\TermoReferenciaController;
 use App\Http\Controllers\Api\UnidadeOfertaController;
 use App\Http\Controllers\Api\RegiaoAdministrativaController;
 use App\Http\Controllers\Api\UsuarioController;
-use App\Http\Controllers\Api\VisitaTecnicaController;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 
@@ -56,10 +41,6 @@ Route::middleware(['auth:sanctum', 'usuario.ativo'])->group(function () {
     Route::apiResource('portfolio-ciclos', CicloController::class)->parameters(['portfolio-ciclos' => 'ciclo']);
     Route::apiResource('cursos', CursoController::class);
     Route::apiResource('plano-de-metas', PlanoDeMetaController::class);
-    Route::apiResource('resolucoes', ResolucaoController::class)
-        ->parameters(['resolucoes' => 'resolucao']);
-    Route::apiResource('termos-referencia', TermoReferenciaController::class)
-        ->parameters(['termos-referencia' => 'termoReferencia']);
     Route::apiResource('pcas', PcaController::class);
     Route::get('eixos/resumo', [EixoController::class, 'resumo']);
     Route::get('eixos/pendentes', [EixoController::class, 'pendentes']);
@@ -72,17 +53,6 @@ Route::middleware(['auth:sanctum', 'usuario.ativo'])->group(function () {
     Route::apiResource('curso-execucoes', CursoExecucaoController::class)
         ->parameters(['curso-execucoes' => 'curso_execucao']);
     Route::apiResource('curso-por-eixos', CursoPorEixoController::class);
-    Route::apiResource('horas-pedagogicas', HoraPedagogicaController::class)
-        ->parameters(['horas-pedagogicas' => 'horaPedagogica']);
-    Route::apiResource('visitas-tecnicas', VisitaTecnicaController::class)
-        ->parameters(['visitas-tecnicas' => 'visitaTecnica']);
-    Route::apiResource('acoes-extensivas', AcaoExtensivaController::class)
-        ->parameters(['acoes-extensivas' => 'acaoExtensiva']);
-    Route::apiResource('eventos', EventoController::class);
-    Route::get('jornadas-pedagogicas/{jornadaPedagogica}/pdf', [JornadaPedagogicaController::class, 'pdf']);
-    Route::apiResource('jornadas-pedagogicas', JornadaPedagogicaController::class)
-        ->parameters(['jornadas-pedagogicas' => 'jornadaPedagogica']);
-    Route::get('sistemas-apoio', [SistemaApoioController::class, 'index']);
     Route::get('unidades-oferta/nomes', [UnidadeOfertaController::class, 'nomes']);
     Route::get('unidades-oferta/opcoes', [UnidadeOfertaController::class, 'opcoes']);
     Route::apiResource('regioes-administrativas', RegiaoAdministrativaController::class)
@@ -91,15 +61,7 @@ Route::middleware(['auth:sanctum', 'usuario.ativo'])->group(function () {
     Route::apiResource('unidades-oferta', UnidadeOfertaController::class)
         ->parameters(['unidades-oferta' => 'unidadeOferta'])
         ->except(['destroy']);
-    Route::apiResource('cped-equipes', CpedEquipeController::class)
-        ->parameters(['cped-equipes' => 'cpedEquipe']);
-    Route::get('ferramentas', [FerramentaController::class, 'index']);
-    Route::get('organograma', [OrganogramaController::class, 'index']);
-    Route::get('carometro', [CarometroController::class, 'index']);
-
     Route::get('dashboard', [DashboardController::class, 'resumo']);
-    Route::get('notificacoes', [NotificacaoController::class, 'index']);
-    Route::post('notificacoes/marcar-lidas', [NotificacaoController::class, 'marcarLidas']);
 
     Route::get('relatorios', [RelatorioController::class, 'index']);
     Route::get('relatorios/{tipo}/preview', [RelatorioController::class, 'preview']);
@@ -109,28 +71,4 @@ Route::middleware(['auth:sanctum', 'usuario.ativo'])->group(function () {
     Route::post('importacoes/{modulo}/preview', [ImportacaoController::class, 'preview']);
     Route::post('importacoes/{modulo}/commit', [ImportacaoController::class, 'commit']);
 
-    Route::prefix('kanban')->group(function () {
-        Route::get('quadros', [KanbanController::class, 'indexQuadros']);
-        Route::post('quadros', [KanbanController::class, 'storeQuadro']);
-        Route::get('quadros/{kanbanQuadro}', [KanbanController::class, 'showQuadro']);
-        Route::put('quadros/{kanbanQuadro}', [KanbanController::class, 'updateQuadro']);
-        Route::delete('quadros/{kanbanQuadro}', [KanbanController::class, 'destroyQuadro']);
-
-        Route::post('quadros/{kanbanQuadro}/colunas', [KanbanController::class, 'storeColuna']);
-        Route::post('quadros/{kanbanQuadro}/cartoes', [KanbanController::class, 'store']);
-
-        Route::put('colunas/{kanbanColuna}', [KanbanController::class, 'updateColuna']);
-        Route::delete('colunas/{kanbanColuna}', [KanbanController::class, 'destroyColuna']);
-        Route::put('cartoes/{kanbanCartao}', [KanbanController::class, 'update']);
-        Route::delete('cartoes/{kanbanCartao}', [KanbanController::class, 'destroy']);
-        Route::put('cartoes/{kanbanCartao}/mover', [KanbanController::class, 'mover']);
-    });
-
-    Route::prefix('fluxogramas')->group(function () {
-        Route::get('/', [FluxogramaController::class, 'index']);
-        Route::post('/', [FluxogramaController::class, 'store']);
-        Route::get('{fluxograma}', [FluxogramaController::class, 'show']);
-        Route::put('{fluxograma}', [FluxogramaController::class, 'update']);
-        Route::delete('{fluxograma}', [FluxogramaController::class, 'destroy']);
-    });
 });

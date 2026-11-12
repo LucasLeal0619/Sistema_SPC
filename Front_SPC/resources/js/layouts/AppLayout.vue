@@ -17,7 +17,7 @@
           <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
       </button>
-      <span class="app-topbar-title">Sistema_SGPC</span>
+      <span class="app-topbar-title">Sistema_SPC</span>
     </header>
 
     <div class="app-overlay" aria-hidden="true" @click="fecharMenu"></div>
@@ -37,7 +37,6 @@
         aria-label="Contexto do ciclo"
       >
         <CicloSeletor />
-        <NotificacaoSino />
       </div>
 
       <main

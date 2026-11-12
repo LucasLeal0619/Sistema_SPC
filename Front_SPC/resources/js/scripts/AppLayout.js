@@ -1,12 +1,11 @@
 import Sidebar from '../components/Sidebar.vue';
 import AcessibilidadeFlutuante from '../components/ui/AcessibilidadeFlutuante.vue';
 import CicloSeletor from '../components/CicloSeletor.vue';
-import NotificacaoSino from '../components/NotificacaoSino.vue';
 import { BREAKPOINTS } from '../responsive/breakpoints';
 
 export default {
   name: 'AppLayout',
-  components: { Sidebar, AcessibilidadeFlutuante, CicloSeletor, NotificacaoSino },
+  components: { Sidebar, AcessibilidadeFlutuante, CicloSeletor },
   data() {
     return {
       menuAberto: false,
@@ -17,12 +16,12 @@ export default {
   computed: {
     cicloBarraAzul() {
       const rota = this.$route?.name || this.$route?.meta?.menu || '';
-      return rota === 'inicio' || rota === 'cped';
+      return rota === 'inicio';
     },
     /** Páginas full-bleed (hero colado na barra de ciclo) — sem padding do main. */
     paginaFlush() {
       const rota = this.$route?.name || this.$route?.meta?.menu || '';
-      return rota === 'inicio' || rota === 'cped';
+      return rota === 'inicio';
     },
   },
   watch: {

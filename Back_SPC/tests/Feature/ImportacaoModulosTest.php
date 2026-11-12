@@ -53,9 +53,7 @@ class ImportacaoModulosTest extends TestCase
         $response->assertOk();
         $keys = collect($response->json('data'))->pluck('key')->all();
         $this->assertContains('cursos', $keys);
-        $this->assertContains('acoes-extensivas', $keys);
-        $this->assertContains('eventos', $keys);
-        $this->assertCount(8, $keys);
+        $this->assertSame(['cursos', 'plano-de-metas', 'pcas', 'eixos'], $keys);
     }
 
     public function test_import_cursos(): void
@@ -198,63 +196,12 @@ class ImportacaoModulosTest extends TestCase
         $preview->assertJsonPath('linhas.1.codigo', 'EIX-11');
     }
 
-    public function test_import_visitas(): void
-    {
-        $this->actingAs($this->editor(), 'sanctum');
-
-        $this->post('/api/importacoes/visitas-tecnicas/commit', [
-            'arquivo' => $this->uploadedFixture('visitas-sample.xlsx'),
-        ])->assertOk()->assertJsonPath('importados', 2);
-
-        $this->assertDatabaseHas('visita_tecnicas', [
-            'unidade' => 'Taguatinga',
-            'processo_sei' => '2026.401',
-        ]);
-    }
-
-    public function test_import_horas(): void
-    {
-        $this->actingAs($this->editor(), 'sanctum');
-
-        $this->post('/api/importacoes/horas-pedagogicas/commit', [
-            'arquivo' => $this->uploadedFixture('horas-sample.xlsx'),
-        ])->assertOk()->assertJsonPath('importados', 2);
-
-        $this->assertDatabaseHas('hora_pedagogicas', [
-            'processo_sei' => '2026.501',
-            'eixo' => 'Ambiente e Saúde',
-            'pessoa' => 'Carla',
-        ]);
-    }
-
-    public function test_import_eventos(): void
-    {
-        $this->actingAs($this->editor(), 'sanctum');
-
-        $preview = $this->post('/api/importacoes/eventos/preview', [
-            'arquivo' => $this->uploadedFixture('eventos-sample.xlsx'),
-        ]);
-        $preview->assertOk();
-        $preview->assertJsonPath('total', 2);
-        $preview->assertJsonPath('linhas.0.data', '2026-03-15');
-
-        $this->post('/api/importacoes/eventos/commit', [
-            'arquivo' => $this->uploadedFixture('eventos-sample.xlsx'),
-        ])->assertOk();
-
-        $this->assertDatabaseCount('eventos', 2);
-        $this->assertDatabaseHas('eventos', [
-            'nome' => 'Feira de Profissões',
-            'unidade' => 'Taguatinga',
-        ]);
-    }
-
     public function test_modulo_inexistente_404(): void
     {
         $this->actingAs($this->editor(), 'sanctum');
 
         $this->post('/api/importacoes/nao-existe/preview', [
-            'arquivo' => $this->uploadedFixture('acoes-extensivas-sample.xlsx'),
+            'arquivo' => $this->uploadedFixture('cursos-sample.xlsx'),
         ])->assertNotFound();
     }
 

@@ -12,56 +12,10 @@ const appChildren = [
   { path: 'ciclos-portfolio', redirect: { name: 'ciclos' } },
   { path: 'plano-de-metas', name: 'plano-de-metas', component: () => import('../pages/PlanoDeMetas.vue'), meta: { menu: 'plano-de-metas' } },
   { path: 'pca', name: 'pca', component: () => import('../pages/Pca.vue'), meta: { menu: 'pca' } },
-  { path: 'controle-de-resolucoes', name: 'controle-de-resolucoes', component: () => import('../pages/ControleDeResolucao.vue'), meta: { menu: 'controle-de-resolucoes' } },
-  { path: 'termos-de-referencia', name: 'termos-de-referencia', component: () => import('../pages/TermosReferencia.vue'), meta: { menu: 'termos-de-referencia' } },
   { path: 'eixos', name: 'eixos', component: () => import('../pages/Eixos.vue'), meta: { menu: 'eixos' } },
   { path: 'eixos/:id', name: 'eixos-detalhe', component: () => import('../pages/EixoDetalhe.vue'), meta: { menu: 'eixos' } },
-  { path: 'visitas-tecnicas', name: 'visitas-tecnicas', component: () => import('../pages/VisitasTecnicas.vue'), meta: { menu: 'visitas-tecnicas' } },
-  { path: 'horas-pedagogicas', name: 'horas-pedagogicas', component: () => import('../pages/HorasPedagogicas.vue'), meta: { menu: 'horas-pedagogicas' } },
-  { path: 'acoes-extensivas', name: 'acoes-extensivas', component: () => import('../pages/AcoesExtensivas.vue'), meta: { menu: 'acoes-extensivas' } },
-  { path: 'eventos', name: 'eventos', component: () => import('../pages/Eventos.vue'), meta: { menu: 'eventos' } },
-  { path: 'jornada-pedagogica', name: 'jornada-pedagogica', component: () => import('../pages/JornadaPedagogica.vue'), meta: { menu: 'jornada-pedagogica' } },
-  { path: 'sistemas-apoio', name: 'sistemas-apoio', component: () => import('../pages/SistemasApoio.vue'), meta: { menu: 'sistemas-apoio' } },
   { path: 'estruturas-institucionais', name: 'estruturas-institucionais', component: () => import('../pages/Unidades.vue'), meta: { menu: 'estruturas-institucionais' } },
   { path: 'unidades', redirect: { name: 'estruturas-institucionais' } },
-  { path: 'ferramentas', name: 'ferramentas', component: () => import('../pages/Ferramentas.vue'), meta: { menu: 'ferramentas' } },
-  {
-    path: 'ferramentas/kanban',
-    name: 'ferramentas-kanban',
-    component: () => import('../pages/KanbanQuadros.vue'),
-    meta: { menu: 'ferramentas' },
-  },
-  {
-    path: 'ferramentas/kanban/:slug',
-    name: 'ferramentas-kanban-quadro',
-    component: () => import('../pages/Kanban.vue'),
-    meta: { menu: 'ferramentas' },
-  },
-  {
-    path: 'ferramentas/organograma',
-    name: 'ferramentas-organograma',
-    component: () => import('../pages/Organograma.vue'),
-    meta: { menu: 'ferramentas' },
-  },
-  {
-    path: 'ferramentas/carometro',
-    name: 'ferramentas-carometro',
-    component: () => import('../pages/Carometro.vue'),
-    meta: { menu: 'ferramentas' },
-  },
-  {
-    path: 'ferramentas/fluxograma',
-    name: 'ferramentas-fluxograma',
-    component: () => import('../pages/Fluxogramas.vue'),
-    meta: { menu: 'ferramentas' },
-  },
-  {
-    path: 'ferramentas/fluxograma/:slug',
-    name: 'ferramentas-fluxograma-editor',
-    component: () => import('../pages/FluxogramaEditor.vue'),
-    meta: { menu: 'ferramentas' },
-  },
-  { path: 'cped', name: 'cped', component: () => import('../pages/Cped.vue'), meta: { menu: 'cped' } },
   { path: 'auditoria', name: 'auditoria', component: () => import('../pages/Auditoria.vue'), meta: { menu: 'auditoria' } },
   { path: 'usuarios', name: 'usuarios', component: () => import('../pages/Usuarios.vue'), meta: { menu: 'usuarios' } },
 ];
@@ -149,31 +103,15 @@ const TITULOS_PAGINA = {
   'ciclos-portfolio': 'Ciclos de Gestão',
   'plano-de-metas': 'Plano de Metas',
   pca: 'PCA',
-  'controle-de-resolucoes': 'Controle de Resoluções',
-  'termos-de-referencia': 'Termos de Referência',
-  'visitas-tecnicas': 'Visitas Técnicas',
-  'horas-pedagogicas': 'Horas Pedagógicas',
-  'acoes-extensivas': 'Ações Extensivas',
-  eventos: 'Eventos',
-  'jornada-pedagogica': 'Jornada Pedagógica',
-  'sistemas-apoio': 'Sistemas de Apoio',
   unidades: 'Estruturas Institucionais',
   'estruturas-institucionais': 'Estruturas Institucionais',
-  ferramentas: 'Ferramentas',
-  'ferramentas-kanban': 'Kanban',
-  'ferramentas-kanban-quadro': 'Kanban',
-  'ferramentas-organograma': 'Organograma',
-  'ferramentas-carometro': 'Carômetro',
-  'ferramentas-fluxograma': 'Fluxogramas',
-  'ferramentas-fluxograma-editor': 'Editor de Fluxograma',
-  cped: 'CPED',
   auditoria: 'Auditoria',
   usuarios: 'Usuários',
 };
 
 router.afterEach((to) => {
-  const titulo = TITULOS_PAGINA[to.name] || 'Sistema_SGPC';
-  document.title = `${titulo} · Sistema_SGPC`;
+  const titulo = TITULOS_PAGINA[to.name] || 'Sistema_SPC';
+  document.title = `${titulo} · Sistema_SPC`;
 });
 
 export default router;

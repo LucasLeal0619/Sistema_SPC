@@ -56,31 +56,6 @@ class Ciclo extends Model
         return $this->hasMany(CursoExecucao::class, 'ciclo_id');
     }
 
-    public function visitasTecnicas(): HasMany
-    {
-        return $this->hasMany(VisitaTecnica::class, 'ciclo_id');
-    }
-
-    public function horasPedagogicas(): HasMany
-    {
-        return $this->hasMany(HoraPedagogica::class, 'ciclo_id');
-    }
-
-    public function acoesExtensivas(): HasMany
-    {
-        return $this->hasMany(AcaoExtensiva::class, 'ciclo_id');
-    }
-
-    public function jornadasPedagogicas(): HasMany
-    {
-        return $this->hasMany(JornadaPedagogica::class, 'ciclo_id');
-    }
-
-    public function eventos(): HasMany
-    {
-        return $this->hasMany(Evento::class, 'ciclo_id');
-    }
-
     public function origem(): BelongsTo
     {
         return $this->belongsTo(self::class, 'origem_id');
@@ -145,22 +120,13 @@ class Ciclo extends Model
      */
     public function composicao(): array
     {
-        $this->loadCount([
-            'cursos', 'planoDeMetas', 'pcas', 'cursosPorEixo',
-            'visitasTecnicas', 'horasPedagogicas', 'acoesExtensivas',
-            'jornadasPedagogicas', 'eventos',
-        ]);
+        $this->loadCount(['cursos', 'planoDeMetas', 'pcas', 'cursosPorEixo']);
 
         return [
             'cursos' => (int) $this->cursos_count,
             'plano_de_metas' => (int) $this->plano_de_metas_count,
             'pca' => (int) $this->pcas_count,
             'eixos' => (int) $this->cursos_por_eixo_count,
-            'visitas' => (int) $this->visitas_tecnicas_count,
-            'horas_pedagogicas' => (int) $this->horas_pedagogicas_count,
-            'acoes' => (int) $this->acoes_extensivas_count,
-            'jornadas' => (int) $this->jornadas_pedagogicas_count,
-            'eventos' => (int) $this->eventos_count,
         ];
     }
 

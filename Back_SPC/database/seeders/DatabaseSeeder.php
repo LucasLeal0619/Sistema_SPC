@@ -25,10 +25,10 @@ class DatabaseSeeder extends Seeder
             CicloSeeder::class,
             UnidadeOfertaSeeder::class,
             UsuarioSeeder::class,
-            CpedEquipeSeeder::class,
-            MassaDadosSeeder::class,
-            KanbanSeeder::class,
-            FluxogramaSeeder::class,
+            CursoSeeder::class,
+            CursoPorEixoSeeder::class,
+            PlanoDeMetaSeeder::class,
+            PcaSeeder::class,
         ]);
     }
 }

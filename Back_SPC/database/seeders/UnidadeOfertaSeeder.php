@@ -200,8 +200,6 @@ class UnidadeOfertaSeeder extends Seeder
     {
         foreach ([
             'usuarios' => 'unidade',
-            'eventos' => 'unidade',
-            'visita_tecnicas' => 'unidade',
             'curso_por_eixos' => 'unidade',
             'pcas' => 'unidade',
             'cursos' => 'unidade',
@@ -277,8 +275,6 @@ class UnidadeOfertaSeeder extends Seeder
 
         foreach ([
             'usuarios' => 'unidade',
-            'eventos' => 'unidade',
-            'visita_tecnicas' => 'unidade',
             'curso_por_eixos' => 'unidade',
             'pcas' => 'unidade',
             'cursos' => 'unidade',

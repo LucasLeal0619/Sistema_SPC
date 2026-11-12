@@ -474,11 +474,6 @@ class ImportacaoService
         for ($row = $headerRow + 1; $row <= $highestRow; $row++) {
             $registro = $this->lerRegistro($sheet, $row, $mapa, $def['date_fields'] ?? [], $campos);
 
-            // Horas: copiar segmento → eixo se eixo vazio
-            if (($def['key'] ?? '') === 'horas-pedagogicas' && $this->valorVazio($registro['eixo'] ?? null)) {
-                $registro['eixo'] = $registro['segmento'] ?? null;
-            }
-
             if ($this->linhaVazia($registro)) {
                 $ignoradas++;
                 continue;
@@ -869,9 +864,6 @@ class ImportacaoService
             if ($campo === 'quantidade_pessoas' && $valor !== null && $valor !== '') {
                 $valor = (int) preg_replace('/\D+/', '', (string) $valor) ?: null;
             }
-            if ($campo === 'ativo' && ($valor === null || $valor === '') && $modulo === 'horas-pedagogicas') {
-                $valor = true;
-            }
             if (is_string($valor)) {
                 $valor = trim($valor);
                 if ($valor === '') {
@@ -997,9 +989,6 @@ class ImportacaoService
     {
         return match ($modulo) {
             'plano-de-metas', 'pcas' => ['numero_sei', 'codigo_sig'],
-            'visitas-tecnicas', 'horas-pedagogicas' => ['processo_sei'],
-            'acoes-extensivas' => ['numero_processo_sei'],
-            'eventos' => ['nome'],
             default => [],
         };
     }
@@ -1037,7 +1026,6 @@ class ImportacaoService
     {
         return [
             'cursos', 'plano-de-metas', 'pcas', 'eixos',
-            'visitas-tecnicas', 'horas-pedagogicas', 'acoes-extensivas', 'eventos',
         ];
     }
 

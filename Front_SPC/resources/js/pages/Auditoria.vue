@@ -3,7 +3,7 @@
     <CrudPageHeader
       title="Auditoria"
       subtitle="Histórico de cadastros, edições, exclusões e importações"
-      info="Registro automático de quem alterou cada módulo do Sistema_SGPC. Disponível apenas para administradores."
+      info="Registro automático de quem alterou cada módulo do Sistema_SPC. Disponível apenas para administradores."
       :show-clear-filters="temFiltro"
       filters-aria-label="Filtros de auditoria"
       @limpar-filtros="limparFiltros"

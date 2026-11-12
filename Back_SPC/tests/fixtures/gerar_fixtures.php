@@ -101,36 +101,6 @@ sheetComCabecalho($ss, 'Quantidade de cursos por eixo', [
 ]);
 salvar($ss, 'eixos-sample.xlsx');
 
-// --- Visitas ---
-$ss = new Spreadsheet;
-sheetComCabecalho($ss, 'Processos de Visitas Técnicas', [
-    'Relação dos CEPs', 'Processo SEI', 'Observação', 'Eixo', 'Status', 'Responsável',
-], [
-    ['Taguatinga', '2026.401', 'Visita laboratório', 'Saúde', 'Agendada', 'Ana'],
-    ['Asa Norte', '2026.402', null, 'Gestão', 'Concluída', 'Bruno'],
-]);
-salvar($ss, 'visitas-sample.xlsx');
-
-// --- Horas ---
-$ss = new Spreadsheet;
-sheetComCabecalho($ss, 'Processos Horas Pedagógicas', [
-    'Processo SEI', 'Segmentos', 'Pessoa', 'Matrícula', 'Ano', 'Motivo', 'Status', 'Observação',
-], [
-    ['2026.501', 'Saúde', 'Carla', 'M-1', '2026', 'Planejamento', 'Aberto', null],
-    ['2026.502', 'Gestão', 'Diego', 'M-2', '2026', 'Avaliação', 'Fechado', 'Ok'],
-]);
-salvar($ss, 'horas-sample.xlsx');
-
-// --- Eventos ---
-$ss = new Spreadsheet;
-sheetComCabecalho($ss, 'Eventos', [
-    'Nome', 'Ano', 'Data', 'Unidade', 'Eixo', 'Quantidade Pessoas', 'Equipe', 'Status', 'Observação',
-], [
-    ['Feira de Profissões', '2026', '15/03/2026', 'Taguatinga', 'Saúde', '120', 'CPED', 'Confirmado', null],
-    ['Semana da Tecnologia', '2026', '20/05/2026', 'Asa Norte', 'Tecnologia', '80', 'CPED', 'Planejado', 'Obs'],
-]);
-salvar($ss, 'eventos-sample.xlsx');
-
 // --- Plano de Metas com codigo_sig placeholder duplicado (-) ---
 $ss = new Spreadsheet;
 sheetComCabecalho($ss, 'PLANO DE METAS 2025', [

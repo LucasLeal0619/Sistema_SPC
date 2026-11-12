@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Níveis de acesso do Sistema_SGPC.
+ * Níveis de acesso do Sistema_SPC.
  *
  * Administrador — gerencia usuários e tem acesso total.
  * Editor — cria e altera dados do portfólio (sem gerenciar usuários).
@@ -53,19 +53,9 @@ return [
         'ciclos-portfolio' => ['Administrador', 'Editor', 'Consultor'],
         'plano-de-metas' => ['Administrador', 'Editor', 'Consultor'],
         'pca' => ['Administrador', 'Editor', 'Consultor'],
-        'controle-de-resolucoes' => ['Administrador', 'Editor', 'Consultor'],
-        'termos-de-referencia' => ['Administrador', 'Editor', 'Consultor'],
         'eixos' => ['Administrador', 'Editor', 'Consultor'],
-        'visitas-tecnicas' => ['Administrador', 'Editor', 'Consultor'],
-        'horas-pedagogicas' => ['Administrador', 'Editor', 'Consultor'],
-        'acoes-extensivas' => ['Administrador', 'Editor', 'Consultor'],
-        'eventos' => ['Administrador', 'Editor', 'Consultor'],
-        'jornada-pedagogica' => ['Administrador', 'Editor', 'Consultor'],
-        'ferramentas' => ['Administrador', 'Editor', 'Consultor'],
-        'sistemas-apoio' => ['Administrador', 'Editor', 'Consultor'],
         'unidades' => ['Administrador', 'Editor', 'Consultor'],
         'estruturas-institucionais' => ['Administrador', 'Editor', 'Consultor'],
-        'cped' => ['Administrador', 'Editor', 'Consultor'],
         'usuarios' => ['Administrador'],
     ],
 ];

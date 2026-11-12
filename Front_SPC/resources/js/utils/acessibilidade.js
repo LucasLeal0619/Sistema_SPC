@@ -1,5 +1,5 @@
 /**
- * Preferências de acessibilidade globais do Sistema_SGPC.
+ * Preferências de acessibilidade globais do Sistema_SPC.
  * Persistidas em localStorage e aplicadas em <html>.
  *
  * - Tema claro/escuro (data-theme)

@@ -5,12 +5,6 @@ import {
   garantirCicloContexto,
   lerCicloContexto,
 } from './cicloContexto';
-import {
-  buscarRegistroDoAlerta,
-  idDaNotificacao,
-  limparQueryNotificacao,
-  metaListaUnitaria,
-} from './filtroNotificacao';
 import CrudPageHeader from '../components/crud/CrudPageHeader.vue';
 import CrudAlerts from '../components/crud/CrudAlerts.vue';
 import CrudFormShell from '../components/crud/CrudFormShell.vue';
@@ -131,9 +125,6 @@ export function createCrudPage(config) {
     limparFiltros() {
       this.filtros = { ...filtrosIniciais };
       this.meta.current_page = 1;
-      if (limparQueryNotificacao(this)) {
-        return;
-      }
       this.aplicarFiltros();
     },
 
@@ -185,17 +176,6 @@ export function createCrudPage(config) {
       }
 
       try {
-        const alertaId = idDaNotificacao(this.$route);
-        if (alertaId) {
-          const registro = await buscarRegistroDoAlerta(endpoint, alertaId, [showKey, 'data']);
-          this[listKey] = registro ? [this.normalizarRegistro(registro)] : [];
-          this.meta = metaListaUnitaria(this.meta, this[listKey].length);
-          if (!registro) {
-            setErro(this, 'Não foi possível localizar o registro do alerta.');
-          }
-          return;
-        }
-
         const params = {
           page: this.meta.current_page || 1,
           per_page: this.meta.per_page || 10,
@@ -489,9 +469,7 @@ export function createCrudPage(config) {
         await this.aplicarCicloContexto();
       }
 
-      if (idDaNotificacao(this.$route)) {
-        this.filtros = { ...filtrosIniciais };
-      } else if (Object.prototype.hasOwnProperty.call(this.filtros, 'ano') && this.$route?.query?.ano) {
+      if (Object.prototype.hasOwnProperty.call(this.filtros, 'ano') && this.$route?.query?.ano) {
         this.filtros.ano = String(this.$route.query.ano);
       }
 
@@ -597,8 +575,7 @@ export function createCrudPage(config) {
     },
 
     temFiltro() {
-      return Object.values(this.filtros).some((valor) => valor !== '' && valor != null)
-        || Boolean(idDaNotificacao(this.$route));
+      return Object.values(this.filtros).some((valor) => valor !== '' && valor != null);
     },
 
     totalRegistros() {
@@ -629,15 +606,6 @@ export function createCrudPage(config) {
       this.iniciarComCiclo();
     };
   }
-
-  watchers['$route.query.alerta'] = function onAlertaNotificacao() {
-    if (idDaNotificacao(this.$route)) {
-      this.filtros = { ...filtrosIniciais };
-    }
-    this.meta.current_page = 1;
-    this.carregarRegistros();
-  };
-  watchers['$route.query.id'] = watchers['$route.query.alerta'];
 
   return {
     name,

@@ -4,7 +4,7 @@
     <template v-if="modo === 'lista'">
       <CrudPageHeader
         title="Usuários"
-        subtitle="Controle de acesso e perfis do Sistema_SGPC — SENAC DF"
+        subtitle="Controle de acesso e perfis do Sistema_SPC — SENAC DF"
         info="O administrador cadastra o colaborador e define o e-mail e a senha de acesso ao sistema."
         :show-novo="podeEditar"
         novo-label="Novo Usuário"
@@ -213,7 +213,7 @@
             <p>
               {{
                 modo === 'novo'
-                  ? 'Preencha as informações para criar um novo acesso ao Sistema_SGPC'
+                  ? 'Preencha as informações para criar um novo acesso ao Sistema_SPC'
                   : 'Atualize os dados do colaborador. Deixe a senha em branco para manter a atual.'
               }}
             </p>

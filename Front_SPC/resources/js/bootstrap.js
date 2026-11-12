@@ -17,7 +17,7 @@ window.axios.interceptors.request.use((config) => {
   const ciclo = lerCicloContexto();
   if (ciclo?.id) {
     config.headers = config.headers || {};
-    config.headers['X-Sistema-SGPC-Ciclo-Id'] = String(ciclo.id);
+    config.headers['X-Sistema-SPC-Ciclo-Id'] = String(ciclo.id);
   }
   return config;
 });
